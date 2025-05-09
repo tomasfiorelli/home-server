@@ -1,0 +1,5 @@
+---
+include:
+  - portainer/portainer.yaml
+  - cloudflared/cloudflared.yaml
+  - minecraft/minecraft.yaml

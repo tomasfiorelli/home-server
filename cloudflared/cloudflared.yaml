@@ -1,0 +1,14 @@
+---
+services:
+  cloudflared:
+    container_name: cloudflared
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARED_TOKEN}
+
+networks:
+  default:
+    name: hs-bridge
+    driver: bridge

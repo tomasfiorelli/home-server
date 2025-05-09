@@ -1,0 +1,21 @@
+---
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    ports:
+      - "9443:9443"
+      - "8000:8000"
+    volumes:
+      - ${HS_PATH}/portainer/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+
+volumes:
+  portainer_data:
+    name: portainer_data
+
+networks:
+  default:
+    name: hs-bridge
+    driver: bridge
